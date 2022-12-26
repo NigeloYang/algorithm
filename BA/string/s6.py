@@ -55,12 +55,37 @@
 解析得到整数 4193 。
 由于 "4193" 在范围 [-231, 231 - 1] 内，最终结果为 4193 。
 '''
-
-
 def myAtoi(s):
-    for i in range(len(s)):
-        is not s[i].isdigit():
+    
+    import re
+    return max(min(int(*re.findall('^[\+\-]?\d+', s.strip())), 2 ** 31 - 1), -2 ** 31)
 
-    return s
+    # arr = list(s.strip())
+    # res = ''
+    # start = 0
+    # # 寻找第一个是数字的位置
+    # while start < len(arr):
+    #     if not arr[start].isdigit():
+    #         start += 1
+    #     else:
+    #         break
+    # # 判定符号
+    # if not (start == 0):
+    #     if arr[start - 1] == '-':
+    #         res += '-'
+    #     elif arr[start - 1] == '+':
+    #         res += '+'
+    # # 计算结果
+    # for v in arr[start:]:
+    #     if v.isdigit():
+    #         res += v
+    #     else:
+    #         break
+    # return max(-2 ** 31, min(int(res), 2 ** 31 - 1))
+    
 
-print("42")
+print(myAtoi("   -42"))
+print(myAtoi("   42"))
+print(myAtoi("___-42"))
+print(myAtoi("4193 with words"))
+print(myAtoi("words and 987"))
