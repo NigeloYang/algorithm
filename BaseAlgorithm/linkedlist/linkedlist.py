@@ -20,6 +20,18 @@ class LinkList(object):
             node = ListNode(i)
             p.next = node
             p = p.next
+            
+    # 创建循环链表
+    def initList_c(self, data):
+        # 创建头结点
+        self.head = ListNode(data[0])
+        p = self.head
+        # 逐个为 data 内的数据创建结点, 建立链表
+        for i in data[1:]:
+            node = ListNode(i)
+            p.next = node
+            p = p.next
+        p.next = self.head
     
     # 链表判空
     def isEmpty(self):
@@ -52,6 +64,18 @@ class LinkList(object):
             p = p.next
         print('')
     
+    # 遍历循环链表
+    def traveList_c(self):
+        if self.isEmpty():
+            exit(0)
+        print('Link List Traving Result:')
+        p = self.head
+        while p:
+            print(p.val, end='\t')
+            if p.next == self.head:
+                break
+            p = p.next
+        print('')
     # 链表插入数据函数
     def insertElem(self, key, index):
         if self.isEmpty():
