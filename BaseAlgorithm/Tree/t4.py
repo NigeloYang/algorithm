@@ -10,9 +10,25 @@ class TreeNode:
 
 
 class Solution:
-    class Solution:
-        def levelOrder(self, root):
-            pass
+    def levelOrder(self, root):
+        if root is None:
+            return []
+        
+        queue = []
+        queue.append(root)
+        res = []
+        while len(queue) > 0:
+            sublist = []
+            print(len(queue))
+            for i in range(len(queue)):
+                root = queue.pop(0)
+                sublist.append(root.val)
+                if root.left is not None:
+                    queue.append(root.left)
+                if root.right is not None:
+                    queue.append(root.right)
+            res.append(sublist)
+        return res
 
 
 if __name__ == "__main__":
@@ -26,5 +42,5 @@ if __name__ == "__main__":
     print()
     tree2.createTree(data2)
     tree2.breadth_travel()
-    # print('\n 验证二叉搜索树结果:', Solution().isValidBST(tree1.root))
-    # print('\n 验证二叉搜索树结果:', Solution().isValidBST(tree2.root))
+    print('\n 验证二叉搜索树结果:', Solution().levelOrder(tree1.root))
+    print('\n 验证二叉搜索树结果:', Solution().levelOrder(tree2.root))

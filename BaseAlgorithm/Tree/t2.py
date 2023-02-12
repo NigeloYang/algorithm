@@ -30,37 +30,36 @@ class TreeNode:
         self.right = right
 
 
-class Solution:
-    # 前序遍历
-    # def isValidBST(self, root, left=float('-inf'), right=float('inf')):
-    #     if root is None:
-    #         return True
-    #     val = root.val
-    #     return left < val < right and self.isValidBST(root.left, left, val) and self.isValidBST(root.right, val, right)
-    
-    
-    # 中序遍历
-    pre = float('-inf')
-    def isValidBST(self, root):
-        if root is None:
-            return True
-        val = root.val
-        return left < val < right and self.isValidBST(root.left, left, val) and self.isValidBST(root.right, val, right)
-
-
 # class Solution:
+#     # 前序遍历
+#     # def isValidBST(self, root, left=float('-inf'), right=float('inf')):
+#     #     if root is None:
+#     #         return True
+#     #     val = root.val
+#     #     return left < val < right and self.isValidBST(root.left, left, val) and self.isValidBST(root.right, val, right)
+#
+#
+#     # 中序遍历
+#     pre = float('-inf')
 #     def isValidBST(self, root):
-#         stack, val = [], float('-inf')
-#         while stack or root:
-#             while root:
-#                 stack.append(root)
-#                 root = root.left
-#             root = stack.pop()
-#             if root.val <= val:
-#                 return False
-#             val = root.val
-#             root = root.right
-#         return True
+#         if root is None:
+#             return True
+#         return self.isValidBST(root.left) and  and self.isValidBST(root.right)
+
+
+class Solution:
+    def isValidBST(self, root):
+        stack, val = [], float('-inf')
+        while stack or root:
+            while root:
+                stack.append(root)
+                root = root.left
+            root = stack.pop()
+            if root.val <= val:
+                return False
+            val = root.val
+            root = root.right
+        return True
 
 
 if __name__ == "__main__":
