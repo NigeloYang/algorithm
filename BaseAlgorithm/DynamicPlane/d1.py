@@ -18,11 +18,32 @@
 2. 1 阶 + 2 阶
 3. 2 阶 + 1 阶
 '''
+import math
+
 
 class Solution:
     def climbStairs(self, n):
-        
-        return n
+        if n <= 1:
+            return 1
+        elif n == 2:
+            return 2
+        else:
+            r1 = 1
+            r2 = 2
+            res = 0
+            for i in range(3, n + 1):
+                res = r1 + r2
+                r1 = r2
+                r2 = res
+            return res
+
+
+#         第二种方式
+#         sqrt = math.sqrt(5)
+#         return int((math.pow((1 + sqrt) / 2, n + 1) - math.pow((1 - sqrt) / 2, n + 1)) / sqrt)
+
 
 if __name__ == '__main__':
     print(Solution().climbStairs(3))
+    print(Solution().climbStairs(4))
+    print(Solution().climbStairs(5))
