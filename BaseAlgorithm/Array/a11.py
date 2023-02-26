@@ -17,13 +17,24 @@ n == matrix.length == matrix[i].length
 
 
 def rotate(matrix):
-    col = size(matrix)
-    now = len(matrix[:, 0])
-    print(now, col)
-    print(matrix)
+    n = len(matrix)
+    matrix_new = [[0] * n for _ in range(n)]
+    for i in range(n):
+        for j in range(n):
+            matrix_new[j][n - i -1] = matrix[i][j]
+    matrix[:] = matrix_new
+    
+    # 旋转完成
+    # n = len(matrix)
+    # for i in range(n // 2):
+    #     for j in range((n + 1) // 2):
+    #         matrix[i][j], matrix[n - j - 1][i], matrix[n - i - 1][n - j - 1], matrix[j][n - i - 1] \
+    #             = matrix[n - j - 1][i], matrix[n - i - 1][n - j - 1], matrix[j][n - i - 1], matrix[i][j]
+    return matrix
+    
 
 
 matrix1 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 matrix2 = [[5, 1, 9, 11], [2, 4, 8, 10], [13, 3, 6, 7], [15, 14, 12, 16]]
-rotate(matrix1)
-rotate(matrix2)
+print(rotate(matrix1))
+print(rotate(matrix2))
