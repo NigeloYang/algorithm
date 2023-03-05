@@ -6,3 +6,4 @@
 - [Arrar](./BaseAlgorithm/Array): 记录数组相关算法 
 - [String](./BaseAlgorithm/String): 记录字符串相关算法 
 - [Linkedlist](./BaseAlgorithm/String): 记录链表相关算法 
+- [Tree](./BaseAlgorithm/Tree): 记录树的基础算法
